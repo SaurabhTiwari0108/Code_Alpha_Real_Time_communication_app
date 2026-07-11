@@ -18,6 +18,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Trust the proxy (Render's load balancer) for express-rate-limit
+app.set('trust proxy', 1);
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/meetsync')
   .then(() => console.log('MongoDB connected'))
