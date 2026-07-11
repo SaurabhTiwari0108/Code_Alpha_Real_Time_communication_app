@@ -9,7 +9,7 @@ interface PeerStreamMap {
   [socketId: string]: MediaStream;
 }
 
-export const useWebRTC = (socket: Socket | null, roomId: string | undefined) => {
+export const useWebRTC = (socket: Socket | null, _roomId: string | undefined) => {
   const [localStream, setLocalStream] = useState<MediaStream | null>(null);
   const [remoteStreams, setRemoteStreams] = useState<PeerStreamMap>({});
   const [isScreenSharing, setIsScreenSharing] = useState(false);
